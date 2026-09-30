@@ -1,6 +1,8 @@
 import { load_text } from '#lib/contradictions.js';
+import { pin } from '#lib/pin.js';
 
 export async function load({ platform }: { platform: App.Platform | undefined }) {
 	const t = await load_text(platform); // t: body text from kv, or the seed
-	return { t };
+	const n = pin(platform); // n: expected pin
+	return { t, n };
 }

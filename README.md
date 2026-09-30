@@ -6,4 +6,5 @@ random temp things to share. sveltekit on cloudflare.
 - live: https://dump.apexlinks.org
 - festus slides: `/festus-preachers/slides`
 - festus contradictions: `/festus-preachers/contradictions` (text from kv)
-- edit: `/festus-preachers/contradictions/edit` (number 54)
+- edit: `/festus-preachers/contradictions/edit` (PIN)
+- private pdfs: `/private` (PIN)

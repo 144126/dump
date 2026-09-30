@@ -3,10 +3,7 @@
 		{ href: '/festus-preachers/contradictions', label: 'festus / contradictions' },
 		{ href: '/festus-preachers/slides', label: 'festus / slides' },
 		{ href: '/paul-after-antioch.md', label: 'paul / after antioch' },
-		{ href: '/pdf/chess-amac', label: 'pdf / chess amac' },
-		{ href: '/pdf/chess-fct', label: 'pdf / chess fct' },
-		{ href: '/pdf/taskify-report', label: 'pdf / taskify report' },
-		{ href: '/pdf/turkiye-ambassador', label: 'pdf / turkiye ambassador' }
+		{ href: '/private', label: 'private' }
 	];
 </script>
 

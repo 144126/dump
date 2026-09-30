@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { k, kv, load_text } from '#lib/contradictions.js';
+import { pin_ok } from '#lib/pin.js';
 
 export async function GET({ platform }: { platform: App.Platform | undefined }) {
 	return new Response(await load_text(platform), {
@@ -14,7 +15,7 @@ export async function PUT({
 	request: Request;
 	platform: App.Platform | undefined;
 }) {
-	if (request.headers.get('x-pin') !== '54') error(403);
+	if (!pin_ok(platform, request.headers.get('x-pin'))) error(403);
 	const store = kv(platform);
 	if (!store) error(500);
 	const t = await request.text(); // t: body text to store

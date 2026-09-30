@@ -3,7 +3,7 @@
 
 	const wait = 2160;
 	let pin = $state<number | ''>('');
-	let open = $derived(pin === 54);
+	let open = $derived(String(pin) === data.n);
 	let text = $state(data.t);
 	let st: 'i' | 's' | 'f' = $state('s'); // i=saving s=saved f=failed
 	let timer = 0;

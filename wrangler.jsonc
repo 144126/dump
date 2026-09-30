@@ -17,6 +17,9 @@
 			"custom_domain": true
 		}
 	],
+	"vars": {
+		"PIN": "54"
+	},
 	"workers_dev": true,
 	"preview_urls": true,
 	"kv_namespaces": [

@@ -5,6 +5,15 @@ test('home lists festus pages', async ({ page }) => {
 	await expect(page.locator('h1')).toHaveText('dump');
 	await expect(page.getByRole('link', { name: 'festus / contradictions' })).toBeVisible();
 	await expect(page.getByRole('link', { name: 'festus / slides' })).toBeVisible();
+	await expect(page.getByRole('link', { name: 'private' })).toBeVisible();
+});
+
+test('private asks for a number until the pin', async ({ page }) => {
+	await page.goto('/private');
+	await expect(page.getByText('number')).toBeVisible();
+	await page.locator('input[name="n"]').fill('54');
+	await page.locator('input[name="n"]').press('Enter');
+	await expect(page.getByRole('link', { name: 'chess amac' })).toBeVisible();
 });
 
 test('contradictions page reads the file', async ({ page }) => {
