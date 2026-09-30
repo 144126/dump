@@ -1,9 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { items } from './contradictions';
+import { k, seed } from './contradictions';
 
-describe('items', () => {
-	it('has ten numbered findings', () => {
-		expect(items).toHaveLength(10);
-		expect(items.map((item) => item.n)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+describe('seed', () => {
+	it('has the ten numbered findings', () => {
+		expect(k).toBe('festus-preachers/contradictions');
+		expect(seed).toContain('I found ten contradictions');
+		expect(seed).toContain('Ten. Tychicus');
 	});
 });

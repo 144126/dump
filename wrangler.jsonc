@@ -3,13 +3,26 @@
 	"name": "dump",
 	"account_id": "9bdf8703c380fa82142864bf5d99a2d7",
 	"compatibility_date": "2026-09-30",
-	"compatibility_flags": ["nodejs_als"],
+	"compatibility_flags": [
+		"nodejs_als"
+	],
 	"main": ".svelte-kit/cloudflare/_worker.js",
 	"assets": {
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare"
 	},
-	"routes": [{ "pattern": "dump.apexlinks.org", "custom_domain": true }],
+	"routes": [
+		{
+			"pattern": "dump.apexlinks.org",
+			"custom_domain": true
+		}
+	],
 	"workers_dev": true,
-	"preview_urls": true
+	"preview_urls": true,
+	"kv_namespaces": [
+		{
+			"binding": "KV",
+			"id": "744b7128e2174b32b3c00a65a5e20774"
+		}
+	]
 }
