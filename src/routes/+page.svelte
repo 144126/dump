@@ -6,11 +6,11 @@
 </script>
 
 <svelte:head>
-	<title>misc</title>
+	<title>dump</title>
 </svelte:head>
 
 <main class="mx-auto max-w-xl px-5 py-16">
-	<h1 class="text-2xl font-medium tracking-tight">misc</h1>
+	<h1 class="text-2xl font-medium tracking-tight">dump</h1>
 	<p class="mt-2 text-muted">random things to share. probably temp.</p>
 	<ul class="mt-10 space-y-3">
 		{#each items as item (item.href)}

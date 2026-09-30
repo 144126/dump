@@ -8,7 +8,7 @@
 
 <main class="mx-auto max-w-2xl px-5 py-12">
 	<p class="text-sm text-muted">
-		<a class="underline decoration-rule underline-offset-4 hover:decoration-ink" href="/">misc</a>
+		<a class="underline decoration-rule underline-offset-4 hover:decoration-ink" href="/">dump</a>
 		<span class="mx-2">/</span>
 		<a
 			class="underline decoration-rule underline-offset-4 hover:decoration-ink"

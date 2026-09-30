@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "misc",
+	"name": "dump",
 	"account_id": "9bdf8703c380fa82142864bf5d99a2d7",
 	"compatibility_date": "2026-09-30",
 	"compatibility_flags": ["nodejs_als"],
@@ -9,7 +9,7 @@
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare"
 	},
-	"routes": [{ "pattern": "misc.apexlinks.org", "custom_domain": true }],
+	"routes": [{ "pattern": "dump.apexlinks.org", "custom_domain": true }],
 	"workers_dev": true,
 	"preview_urls": true
 }
