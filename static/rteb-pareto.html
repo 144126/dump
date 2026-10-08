@@ -14,7 +14,10 @@
     --open: #6db3f2;
     --closed: #c27a9a;
     --hi: #7dcea0;
+    --co: #ff8a4c;
   }
+  #api tr.co td { color: var(--co); }
+  #api tr.co a { color: var(--co); }
   * { box-sizing: border-box; }
   html, body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.4 ui-sans-serif, system-ui, sans-serif; }
   header { padding: 20px 24px 8px; max-width: 1280px; margin: 0 auto; }
@@ -74,6 +77,7 @@
     </select>
   </label>
   <button id="hi" class="on" type="button">highlight known</button>
+  <button id="hico" class="on" type="button">highlight Cohere</button>
   <span id="nshow"></span>
 </div>
 <div class="wrap">
@@ -84,6 +88,7 @@
       <span><i class="sw" style="background:var(--closed)"></i>closed, size known</span>
       <span><i class="sw" style="background:var(--front)"></i>Pareto front</span>
       <span><i class="sw" style="background:var(--hi)"></i>Granite / bge-small / Qwen3-0.6B</span>
+      <span><i class="sw" style="background:var(--co)"></i>Cohere (no size — right gutter)</span>
     </div>
   </div>
   <aside>
@@ -130,13 +135,16 @@ function short(n) {
   return i >= 0 ? n.slice(i+1) : n;
 }
 let highlight = true;
+let hiCo = true;
+function isCo(p) { return /cohere/i.test(p.n); }
 function draw() {
   const kmin = +document.getElementById('k').value;
   document.getElementById('kv').textContent = kmin;
   const who = document.getElementById('who').value;
   const sized = DATA.filter(d => d.mb && d.k >= kmin && (who !== 'open' || d.o));
   const api = DATA.filter(d => !d.mb && d.k >= kmin).sort((a,b) => b.s - a.s);
-  document.getElementById('nshow').textContent = sized.length + ' on plot · ' + api.length + ' unsized';
+  const cohere = DATA.filter(d => isCo(d) && d.k >= kmin && (who !== 'open' || d.o));
+  document.getElementById('nshow').textContent = sized.length + ' on plot · ' + api.length + ' unsized · ' + cohere.length + ' Cohere';
   while (svg.firstChild) svg.removeChild(svg.firstChild);
   const W = 860, H = 560, L = 62, R = 18, T = 18, B = 48;
   const mbs = sized.map(d => d.mb);
@@ -144,7 +152,7 @@ function draw() {
   if (!sized.length) return;
   const xmin = Math.min(...mbs), xmax = Math.max(...mbs);
   const ymin = Math.min(0, Math.min(...ss)), ymax = Math.max(...ss);
-  const x0 = log(Math.max(xmin * 0.8, 1)), x1 = log(xmax * 1.15);
+  const x0 = log(Math.max(xmin * 0.8, 1)), x1 = log(xmax * 1.55);
   const y0 = ymin - 0.03, y1 = ymax + 0.03;
   const X = v => L + (log(v) - x0) / (x1 - x0) * (W - L - R);
   const Y = v => T + (1 - (v - y0) / (y1 - y0)) * (H - T - B);
@@ -189,6 +197,24 @@ function draw() {
       svg.appendChild(el('text', {x:X(p.mb)+7, y:Y(p.s)-6, fill:'#c8c4ba', 'font-size':10}, short(p.n).slice(0,28)));
     }
   }
+  if (hiCo && cohere.length) {
+    const gx = W - R - 10;
+    svg.appendChild(el('line', {x1:gx,x2:gx,y1:T,y2:H-B,stroke:'#ff8a4c', 'stroke-dasharray':'3 4', opacity:.45}));
+    svg.appendChild(el('text', {x:gx, y:T+10, fill:'#ff8a4c', 'font-size':10, 'text-anchor':'middle'}, 'Cohere'));
+    const used = [];
+    for (const p of cohere.slice().sort((a,b)=>b.s-a.s)) {
+      let ty = Y(p.s);
+      for (const u of used) { if (Math.abs(ty-u) < 11) ty = u - 11; }
+      used.push(ty);
+      const circ = el('circle', {cx:gx, cy:Y(p.s), r:5.4, fill:'#ff8a4c', opacity:0.95});
+      circ.style.cursor = 'pointer';
+      circ.addEventListener('pointerenter', ev => show(p, ev));
+      circ.addEventListener('pointermove', ev => { tip.style.left = (ev.clientX+12)+'px'; tip.style.top = (ev.clientY+12)+'px'; });
+      circ.addEventListener('pointerleave', () => { tip.style.display = 'none'; });
+      g.appendChild(circ);
+      svg.appendChild(el('text', {x:gx-8, y:ty-6, fill:'#ff8a4c', 'font-size':10, 'text-anchor':'end'}, short(p.n).replace(/^Cohere-?/,'').slice(0,32)));
+    }
+  }
   const tb = document.querySelector('#front tbody');
   tb.innerHTML = front.map(p => `<tr>
     <td class="num">${p.mb>=1024?(p.mb/1024).toFixed(1)+'G':Math.round(p.mb)}</td>
@@ -197,7 +223,7 @@ function draw() {
     <td>${p.u?`<a href="${p.u}">${short(p.n)}</a>`:short(p.n)}${p.est?' <span title="size estimated from params">~</span>':''}</td>
   </tr>`).join('');
   const ab = document.querySelector('#api tbody');
-  ab.innerHTML = api.slice(0,18).map(p => `<tr>
+  ab.innerHTML = api.slice(0,18).map(p => `<tr class="${isCo(p)?'co':''}">
     <td class="num">${p.s.toFixed(3)}</td>
     <td class="num">${p.k}</td>
     <td>${p.u?`<a href="${p.u}">${short(p.n)}</a>`:short(p.n)}</td>
@@ -219,6 +245,11 @@ document.getElementById('who').addEventListener('change', draw);
 document.getElementById('hi').addEventListener('click', e => {
   highlight = !highlight;
   e.currentTarget.classList.toggle('on', highlight);
+  draw();
+});
+document.getElementById('hico').addEventListener('click', e => {
+  hiCo = !hiCo;
+  e.currentTarget.classList.toggle('on', hiCo);
   draw();
 });
 draw();
