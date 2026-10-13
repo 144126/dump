@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WASSCE Non-African Texts</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root {
+  --display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --bg: #f3f5f4;
+  --fg: #1a2321;
+  --muted: #56635f;
+  --rule: #d2dad7;
+  --accent: #1c5a55;
+  --flag-bg: #f7eedb;
+  --flag-fg: #4f3406;
+  --chip: #e3e9e7;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1514;
+    --fg: #e2e9e7;
+    --muted: #97a6a2;
+    --rule: #2a3634;
+    --accent: #7fcdc4;
+    --flag-bg: #262010;
+    --flag-fg: #efd9a4;
+    --chip: #1b2625;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1514;
+  --fg: #e2e9e7;
+  --muted: #97a6a2;
+  --rule: #2a3634;
+  --accent: #7fcdc4;
+  --flag-bg: #262010;
+  --flag-fg: #efd9a4;
+  --chip: #1b2625;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.65; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+.page {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 56px;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 56px);
+  padding-block: 40px 96px;
+}
+.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font-size: 14px; }
+.toc .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 22px 0 6px; }
+.toc .grp:first-child .lbl { margin-top: 0; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc a { display: block; padding: 4px 0; color: var(--fg); text-decoration: none; }
+.toc a:hover, .toc a:focus-visible { color: var(--accent); }
+.toc .num { font-family: var(--mono); color: var(--muted); font-size: 12px; margin-right: 8px; }
+
+main { min-width: 0; max-width: 74ch; }
+.kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.1rem, 5.5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.015em; margin: 0 0 22px; text-wrap: balance; }
+h1 + p { font-size: 1.08rem; color: var(--muted); }
+h2 { font-family: var(--display); font-weight: 500; font-size: clamp(1.6rem, 4vw, 2.1rem); line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 14px; text-wrap: balance; scroll-margin-top: 24px; }
+h3 { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 2.2rem 0 .6rem; }
+section.text { padding-top: 48px; margin-top: 48px; border-top: 1px solid var(--rule); }
+section.intro { padding-bottom: 8px; }
+p { margin: .7em 0; }
+ul, ol { padding-left: 1.25em; margin: .6em 0; }
+li { margin: .35em 0; }
+li > ul { margin: .3em 0; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+hr { display: none; }
+
+.scroll { overflow-x: auto; margin: 1.2em 0; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule); }
+th { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+td:first-child { font-weight: 600; }
+
+aside.flags { background: var(--flag-bg); color: var(--flag-fg); padding: 2px 18px 14px; margin: 2.2rem 0 0; }
+aside.flags h3 { color: var(--flag-fg); margin-top: 14px; }
+aside.flags li { font-size: 15px; }
+
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 860px) {
+  .page { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .toc { position: static; }
+  .toc .lbl { margin: 14px 0 6px; }
+  .toc ol { display: flex; flex-wrap: wrap; gap: 6px; }
+  .toc a { padding: 6px 10px; background: var(--chip); }
+  main { max-width: none; }
+  section.text { padding-top: 36px; margin-top: 36px; }
+}
+</style>
+</head>
+<body>
+<div class="page"><nav class="toc" aria-label="Sections"><div class="grp"><p class="lbl">Start</p><ol><li><a href="#quick-reference">Quick reference</a></li></ol></div><div class="grp"><p class="lbl">Prose</p><ol><li><a href="#1-to-kill-a-mockingbird-harper-lee-novel-1960"><span class="num">1</span>To Kill a Mockingbird</a></li><li><a href="#2-path-of-lucas-the-journey-he-endured-susanne-bellefeuille-novel-2015"><span class="num">2</span>Path of Lucas: The Journey He Endured</a></li></ol></div><div class="grp"><p class="lbl">Drama</p><ol><li><a href="#3-an-inspector-calls-j-b-priestley-play-1945"><span class="num">3</span>An Inspector Calls</a></li><li><a href="#4-a-man-for-all-seasons-robert-bolt-play-1960"><span class="num">4</span>A Man for All Seasons</a></li></ol></div><div class="grp"><p class="lbl">Poetry</p><ol><li><a href="#5-she-walks-in-beauty-lord-byron-poem-1814-1815"><span class="num">5</span>She Walks in Beauty</a></li><li><a href="#6-the-nun-s-priest-s-tale-shortened-geoffrey-chaucer-tale-late-14th-century"><span class="num">6</span>The Nun&#x27;s Priest&#x27;s Tale (shortened)</a></li><li><a href="#7-digging-seamus-heaney-poem-1966"><span class="num">7</span>Digging</a></li><li><a href="#8-still-i-rise-maya-angelou-poem-1978"><span class="num">8</span>Still I Rise</a></li><li><a href="#9-the-telephone-call-fleur-adcock-poem-1986"><span class="num">9</span>The Telephone Call</a></li><li><a href="#10-the-stone-wilfrid-wilson-gibson-poem-1912"><span class="num">10</span>The Stone</a></li></ol></div><div class="grp"><p class="lbl">Sources</p><ol><li><a href="#sources-and-limits">Sources and limits</a></li></ol></div></nav><main><p class="kicker">WAEC list · WASSCE 2026–2030 · Literature in English</p><section class="intro"><h1>WASSCE 2026–2030: Non-African Texts, Research Notes</h1>
+<p>Covers the 10 non-African texts on WAEC's Harmonized List of Literature-in-English Texts for WASSCE 2026–2030: 2 prose, 2 drama, 6 poems. Shakespeare's <em>Antony and Cleopatra</em> is left out because the list files it under its own Shakespearean heading.</p>
+<p>Every text ends with an <strong>Unverified or uncertain</strong> list. Several major study sites blocked the research (SparkNotes, Poetry Foundation, Gradesaver, Britannica and others returned errors), so some points rest on one or two sources. Check every quote and chapter, stanza or line reference against your own copy before the exam.</p>
+<p><strong>Spelling on the WAEC list (use the correct form in essays):</strong>
+- "To Kill a Mocking Bird" is <em>To Kill a Mockingbird</em>.
+- "J. D. Priestley" is J. B. Priestley.
+- "Wilfred Wilson Gipson" is Wilfrid Wilson Gibson.</p>
+</section><section class="text"><h2 id="quick-reference">Quick reference</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Text</th>
+<th>Type</th>
+<th>Author</th>
+<th>Year</th>
+<th>Setting</th>
+<th>Narration and flashback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To Kill a Mockingbird</td>
+<td>Prose</td>
+<td>Harper Lee</td>
+<td>1960</td>
+<td>Maycomb, Alabama, 1933–1935</td>
+<td>Adult Scout looks back. Yes, retrospective.</td>
+</tr>
+<tr>
+<td>Path of Lucas: The Journey He Endured</td>
+<td>Prose</td>
+<td>Susanne Bellefeuille</td>
+<td>2015</td>
+<td>Alexandria, Ontario (per sources), 1956–1993</td>
+<td>Hospital bedside frame. Whole past story is recollection.</td>
+</tr>
+<tr>
+<td>An Inspector Calls</td>
+<td>Drama</td>
+<td>J. B. Priestley</td>
+<td>1945</td>
+<td>Birling dining room, Brumley, one night in 1912</td>
+<td>No flashback. Past rebuilt through questioning.</td>
+</tr>
+<tr>
+<td>A Man for All Seasons</td>
+<td>Drama</td>
+<td>Robert Bolt</td>
+<td>1960</td>
+<td>England, 1529–1535</td>
+<td>No flashback. The Common Man narrates.</td>
+</tr>
+<tr>
+<td>She Walks in Beauty</td>
+<td>Poem</td>
+<td>Lord Byron</td>
+<td>1814–1815</td>
+<td>No place named</td>
+<td>No flashback. One brief reference to the past.</td>
+</tr>
+<tr>
+<td>The Nun's Priest's Tale (shortened)</td>
+<td>Poem (tale)</td>
+<td>Geoffrey Chaucer</td>
+<td>Late 14th century</td>
+<td>A widow's cottage; told on pilgrimage</td>
+<td>Frame narrative. No flashback.</td>
+</tr>
+<tr>
+<td>Digging</td>
+<td>Poem</td>
+<td>Seamus Heaney</td>
+<td>1966</td>
+<td>Speaker's home, garden, bog</td>
+<td>Yes. Memory of father, then grandfather.</td>
+</tr>
+<tr>
+<td>Still I Rise</td>
+<td>Poem</td>
+<td>Maya Angelou</td>
+<td>1978</td>
+<td>No place; direct address</td>
+<td>No flashback.</td>
+</tr>
+<tr>
+<td>The Telephone Call</td>
+<td>Poem</td>
+<td>Fleur Adcock</td>
+<td>1986</td>
+<td>No place named; probably UK (inference)</td>
+<td>One phone call. No flashback.</td>
+</tr>
+<tr>
+<td>The Stone</td>
+<td>Poem</td>
+<td>Wilfrid Wilson Gibson</td>
+<td>1912</td>
+<td>A quarry; headstone carved at night</td>
+<td>Sequence of nights. One brief backward reference.</td>
+</tr>
+</tbody>
+</table></div>
+
+</section><section class="text"><h2 id="1-to-kill-a-mockingbird-harper-lee-novel-1960">1. To Kill a Mockingbird, Harper Lee (novel, 1960)</h2>
+<h3>Author and background</h3>
+<ul>
+<li>First published 11 July 1960 by J. B. Lippincott &amp; Co., in the United States.</li>
+<li>Monroeville, Alabama, is widely named as the model for Maycomb. The town stages an annual play based on the novel.</li>
+<li>Lee's birth year, childhood and prizes were not checked.</li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li><strong>Place:</strong> Maycomb, a fictional town in Alabama and the seat of Maycomb County.</li>
+<li><strong>Time:</strong> 1933 to 1935, during the Great Depression.</li>
+<li><strong>Mood:</strong> The town is poor and slow. Scout calls it "a tired old town," a metaphor that gives the town a human trait.</li>
+<li><strong>Key places:</strong> The Finch house; the Radley house next door; the Ewell home behind the town dump; the courthouse where the trial is held; the school route where the attack happens; Finch's Landing, the old family plantation where Aunt Alexandra lives.</li>
+</ul>
+<h3>Plot</h3>
+<ol>
+<li>Scout, her brother Jem and their friend Dill are fascinated by their reclusive neighbour, Boo Radley. They leave small gifts for each other in a tree near his house. Boo's brother later seals the hiding place.</li>
+<li>Atticus Finch agrees to defend Tom Robinson, a Black man accused of raping Mayella Ewell. Townspeople object, and a mob comes to lynch Tom. Scout calms the mob by talking to a classmate's father.</li>
+<li>At the trial, Atticus shows that Mayella and Bob Ewell are lying. The all-white jury still convicts Tom.</li>
+<li>Tom is later reported to have tried to escape from prison. He is shot and killed.</li>
+<li>Bob Ewell, humiliated, spits in Atticus's face and threatens Tom's widow. After a school pageant, he attacks Jem and Scout in the dark. Jem's arm is broken. A mysterious man carries Jem home, and Scout realises he is Boo Radley.</li>
+<li>Ewell is found dead from a knife wound. Sheriff Heck Tate decides to report that Ewell fell on his own knife, to protect Boo.</li>
+<li>Ending: Scout walks Boo home and never sees him again. She then stands on the Radley porch and imagines the world from his point of view.</li>
+</ol>
+<h3>Characters</h3>
+<ul>
+<li><strong>Scout Finch (Jean Louise):</strong> The narrator. Six at the start, about nine at the end. Bright and a tomboy.</li>
+<li><strong>Jem Finch:</strong> Scout's older brother, nine at the start. He wants to be the leader.</li>
+<li><strong>Atticus Finch:</strong> Their widowed father and a lawyer, nearly fifty. He defends Tom with calm principle.</li>
+<li><strong>Tom Robinson:</strong> A 25-year-old Black man. Kind, a churchgoer, married.</li>
+<li><strong>Boo Radley (Arthur):</strong> A recluse. Rumours about him spread through the town. He stands for innocence and for fear of the unknown.</li>
+<li><strong>Bob Ewell:</strong> Mayella's father. Racist, drunk and violent. Lives behind the dump.</li>
+<li><strong>Mayella Ewell:</strong> His 19-year-old daughter. She accuses Tom.</li>
+<li><strong>Dill (Charles Baker Harris):</strong> A summer visitor, storyteller and friend of Jem and Scout.</li>
+<li><strong>Calpurnia:</strong> The Finches' Black cook. After Mrs. Finch's death she helps raise the children.</li>
+<li><strong>Miss Maudie Atkinson:</strong> A kind neighbour who loves gardening.</li>
+<li><strong>Aunt Alexandra:</strong> Atticus's sister. She cares about family standing and propriety.</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>Racial injustice:</strong> Tom is convicted even though the evidence shows he is innocent.</li>
+<li><strong>Innocence:</strong> The mockingbird stands for harmless beings who harm no one. Atticus says it is a sin to kill one ("it's a sin to kill a mockingbird").</li>
+<li><strong>Empathy:</strong> Atticus teaches that you must see things from another person's view. Scout's last reflection on Boo shows this idea.</li>
+<li><strong>Fear and rumour:</strong> The town invents stories about Boo. The truth is kinder than the rumours.</li>
+<li><strong>Growing up:</strong> Scout learns that adults can be unfair, and that moral courage matters more than social rank.</li>
+</ul>
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Symbolism:</strong> The mockingbird stands for Tom and Boo. Example: "it's a sin to kill a mockingbird."</li>
+<li><strong>Foreshadowing:</strong> The gifts in the tree hint at Boo's later rescue of the children.</li>
+<li><strong>Metaphor:</strong> "A tired old town" gives Maycomb human tiredness.</li>
+<li><strong>Dramatic irony:</strong> The adult narrator knows more than the child Scout did, so her childhood view is shown as limited.</li>
+<li><strong>Motif:</strong> The Radley house and the tree recur as signs of fear and of hidden kindness.</li>
+</ul>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>Narrator:</strong> Scout (Jean Louise Finch), an adult woman looking back on her childhood.</li>
+<li><strong>Narration is retrospective.</strong> Sources describe it as using flashbacks.</li>
+<li><strong>Flashbacks and time shifts:</strong></li>
+<li>The whole novel is a frame: the adult Scout recalls 1933 to 1935.</li>
+<li>Finch family history and Maycomb background, told early in the novel.</li>
+<li>Neighbours' rumours about Boo Radley, recalled early as stories the children heard.</li>
+<li>The ending: Scout stands on the Radley porch and imagines Boo's view. This is a reflection in the present of the frame, not a flashback.</li>
+<li><strong>Chapters:</strong> 31. Reviewers note two parts. Part One centres on the children and Boo. Part Two centres on racial injustice. Exact chapter ranges were not confirmed.</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li>Warm, funny and sad at once. The tone moves from childhood play to serious injustice.</li>
+<li>First-person narration. The child's voice mixes with the adult narrator's judgement and hindsight. Dialogue uses Southern speech.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li>Scout's role as narrator. Why an adult narrator matters.</li>
+<li>How the trial shows injustice: the evidence points one way, the verdict goes the other.</li>
+<li>The meaning of the mockingbird, and how Tom and Boo fit it.</li>
+<li>How Boo changes the children's view of others.</li>
+<li>Cite each quote with its chapter from your own copy.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li>Lee's birth year, childhood and any prizes were not checked.</li>
+<li>Chapter numbers for the trial (around 27–29 for the attack, 31 for the ending) come from search snippets. The pages were not fetched.</li>
+<li>Chapter ranges for Part One and Part Two were not stated in the sources read.</li>
+<li>Quote locations and the "tired old town" line were given from memory, not checked.</li>
+<li>Chapter ranges for the flashbacks come from search snippets only.</li>
+<li>Neighbours' names (for example Miss Stephanie Crawford) were not confirmed in a fetched source.</li>
+<li>How Ewell died: the official account is that he fell on his own knife. Boo's role is implied, and sources differ on the detail.</li>
+<li>Wikipedia's claim about a real family hiding a son for 24 years was not checked, and is not needed for the exam.</li>
+<li>Sources read: Wikipedia, LitCharts (characters), Shmoop, and the WAEC list. SparkNotes, Britannica, Gradesaver, CliffsNotes and eNotes returned errors.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="2-path-of-lucas-the-journey-he-endured-susanne-bellefeuille-novel-2015">2. Path of Lucas: The Journey He Endured, Susanne Bellefeuille (novel, 2015)</h2>
+<p>This is the least-documented text on the list. Most details below come from review sites and study guides, not the book. <strong>Read the book itself</strong> before relying on any of these details.</p>
+<h3>Author and background</h3>
+<ul>
+<li>The book is set in Ontario, Canada, and one bookseller files it under "Canadian" (a shelf category). Published by Balboa Press in 2015 (ISBN 9781504342902 from a bookseller listing). One review gives a release date of 26 December 2015 and 350 pages. A search summary gave 314 pages, which is unconfirmed.</li>
+<li>Adult fiction, "based on a true story." One study guide calls it a "biographical novel."</li>
+<li>Lucas is based on the author's father, Roger Bellefeuille. Isabelle is based on her mother, Gisele. Three sources agree on this.</li>
+<li>The author says her next project will focus on her mother's life with depression.</li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li><strong>Main setting:</strong> Alexandria, Ontario, Canada. The Clarkson farm is here. The past story starts in late summer 1956. One review says "a small town in Eastern Ontario" and names no town.</li>
+<li><strong>Other places</strong> (from one review-style site unless noted):</li>
+<li>Uxbridge, Ontario: Lucas trains at Jim's garage for mechanic certification.</li>
+<li>Kemptville, Ontario: Lucas takes a supervisory job for a cable company.</li>
+<li>Cornwall, Ontario: Isabelle's psychiatric treatment, and Lucas's logging work at a paper mill.</li>
+<li>Ottawa, Ontario: Richard is treated at a cancer unit.</li>
+<li>Kingston, Ontario: Lucy's home. Only one site says this.</li>
+<li>Cold Lake, Alberta: Steve's posting. Only one site says this.</li>
+<li><strong>Years:</strong> The past story spans 1956 to 1993. The present-day year is not given.</li>
+<li><strong>Present-day hospital:</strong> A General Hospital intensive care unit. The city is not stated.</li>
+</ul>
+<h3>Plot</h3>
+<p><strong>Present frame:</strong> Adult Lucy crashes her car in fog while driving to visit her father. She is in a coma. Lucas sits by her bed and tells his life story, hoping she will wake.</p>
+<p><strong>Past story, in order (dates from review sites):</strong>
+1. Late summer 1956: Lucas, 17, meets Isabelle on a country road. One site says he is driving a Studebaker.
+2. Isabelle tells him about the abuse she and her sister France suffered from their parents.
+3. Isabelle's 18th birthday: Lucas proposes. She is pregnant.
+4. 15 November 1958: they marry.
+5. May 1959: Richard is born. Four more children follow: Johnny, Steve, Lucy and Thomas. One site says five children in total.
+6. Early 1960s: Lucas goes to Uxbridge for a mechanic apprenticeship. He returns to Alexandria when his father, John, faces bankruptcy. One site gives failing health as the reason.
+7. 1970s, no exact years: Lucas's best friend Steve dies in a plane crash. One site says military, another says air crash. Isabelle falls into psychotic depression.
+8. Recovery: Lucas takes Isabelle out of the psychiatric ward against medical advice. Her memory returns just before Christmas.
+9. 14 May 1981: Richard dies at 22 of throat cancer.
+10. Later: John and Elizabeth Clarkson die. One site says Elizabeth died of Alzheimer's. Lucas and Isabelle travel across North America in a Winnebago. No dates are given.
+11. 10 June 1993: Isabelle dies of a sudden heart attack, aged 53.</p>
+<p><strong>Ending:</strong> Lucy wakes. She recognises her family and says she heard his story. Lucas has chest pains, hides them, and dies of a heart attack. One source places this in the hallway; another places it just outside her room. He sees a vision of young Isabelle. Lucy gives his eulogy a week later.</p>
+<h3>Characters</h3>
+<ul>
+<li><strong>Lucas Clarkson:</strong> The protagonist and, in most sources, the narrator. A farmer's son who dreams of being a mechanic.</li>
+<li><strong>Lucy:</strong> His daughter, an adult in the frame. Named Lucy Ferguson by two sites. Her husband is Mark Ferguson. The Barnes &amp; Noble synopsis does not name her.</li>
+<li><strong>Isabelle Bourgeois (Clarkson):</strong> His wife. Works for Mr. Thomas. Has psychotic depression. Dies in 1993.</li>
+<li><strong>Richard Clarkson:</strong> Eldest son, born May 1959. Dies in 1981. His wife is Chelsea and their daughter is Paige.</li>
+<li><strong>Steve Lewis:</strong> Lucas's best friend since third grade. Dies in a plane crash. His parents are Arthur and Stella Lewis.</li>
+<li><strong>John and Elizabeth Clarkson:</strong> Lucas's parents.</li>
+<li><strong>France Bourgeois:</strong> Isabelle's older sister. One site says she died of a heart attack at 32; another says diabetes.</li>
+<li><strong>Mr. Thomas:</strong> Isabelle's employer.</li>
+<li><strong>Thomas Clarkson:</strong> A son, born prematurely.</li>
+<li><strong>Jim:</strong> A garage owner who offers Lucas an apprenticeship.</li>
+<li><strong>Doctors:</strong> Dr. Jones (Isabelle's psychiatrist), Dr. Coleman (who delivered Thomas), Dr. Bates (Alexandria).</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>Family under strain:</strong> Lucas works to keep his family together.</li>
+<li><strong>Dreams against duty:</strong> Lucas gives up his mechanic dream again and again to care for family.</li>
+<li><strong>Trauma and depression:</strong> Isabelle's childhood abuse and later depression.</li>
+<li><strong>Memory and forgetting:</strong> One analysis quotes the text: "forgetfulness becomes a necessary strategy."</li>
+<li><strong>Fragility of life:</strong> Lucy's coma is read as a symbol of this.</li>
+</ul>
+<h3>Literary devices</h3>
+<p>These are named by analysis sites. The examples come from one site only, and were not checked against the book.
+- <strong>Dramatic irony:</strong> Lucas tells Mark that Lucy should arrive soon. She is already in hospital.
+- <strong>Foreshadowing:</strong> Steve's father fears for his son's safety. Steve later dies in a crash.
+- <strong>Symbolism:</strong> Lucy's coma stands for the fragility of life. No text example given.
+- <strong>Flashback:</strong> The whole story is Lucas's past, told to Lucy.
+- <strong>Stream of consciousness and historic present:</strong> Named, with no example.
+- <strong>Code-switching:</strong> Isabelle's French word "Qui."
+- <strong>Imagery, irony, euphemism, humour, motif:</strong> Named but not illustrated.</p>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>Frame:</strong> The present is a hospital bedside. Lucas tells Lucy his life.</li>
+<li><strong>Flashbacks:</strong> Yes. The whole past story is recollection. No single flashback scene is confirmed with a chapter or page.</li>
+<li><strong>Time shifts:</strong> The story moves from the present to 1956, then back to the present for the ending. One analysis calls the structure "non-chronological and circular."</li>
+<li><strong>Narrator:</strong> Lucas, in his 70s, per two sites. One analysis says third person, omniscient. The grammatical person is not confirmed.</li>
+<li><strong>Chapters:</strong> Only Chapters 1 to 3 were analysed. No full chapter list was found.</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li>One reviewer found the story compelling and the characters admirable, but judged the writing simplistic, "more telling than showing," with less realistic dialogue.</li>
+<li>Mood: reflective, hopeful and sombre.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li>Confirmed on the WAEC list: Non-African Prose, item 2.</li>
+<li>Key characters: Lucas, Lucy, Isabelle, Richard, Steve.</li>
+<li>Key events: the 1956 meeting, the 1958 marriage, Richard's death in 1981, Isabelle's death in 1993, and the frame ending.</li>
+<li>Sources disagree on several details (see below). Check each one against the book.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li><strong>Publisher and ISBN:</strong> Balboa Press is confirmed by one review and a search snippet. ISBN from one bookseller listing. A Barnes &amp; Noble file name shows a different ISBN, possibly another edition.</li>
+<li><strong>Page count:</strong> 350 (review) versus 314 (search summary).</li>
+<li><strong>Setting:</strong> Alexandria, Ontario, is the main setting in three sources. One review says "Eastern Ontario." Another site says "a province, a town or countryside."</li>
+<li><strong>Hospital location:</strong> Not stated.</li>
+<li><strong>Lucy's home (Kingston):</strong> One site only.</li>
+<li><strong>France's death:</strong> Heart attack at 32 versus diabetes.</li>
+<li><strong>Steve's death:</strong> Military plane crash versus air crash. No year given.</li>
+<li><strong>Lucas's place of death:</strong> Hallway versus outside her room.</li>
+<li><strong>Narrator:</strong> Lucas in most sources; "third person, omniscient" in one.</li>
+<li><strong>Years:</strong> Most 1970s and 1980s events have no exact year. The 1958, 1981 and 1993 dates each come from one source, except 1993 (two sources).</li>
+<li><strong>Children's names:</strong> From one site only.</li>
+<li><strong>Lucy's surname:</strong> Ferguson in two sources. A heading in one site reads "Lucy Clarkson / Ferguson."</li>
+<li><strong>Literary devices:</strong> Only one site gives examples.</li>
+<li><strong>Themes:</strong> From reviews and analysis pages, not the text.</li>
+<li><strong>Not used:</strong> Goodreads 241555365 is a different novel. A search result for a LASU page was about <em>To Kill a Mockingbird</em>. The Books-A-Million page returned HTTP 403.</li>
+<li><strong>Not done:</strong> The novel itself was not read.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="3-an-inspector-calls-j-b-priestley-play-1945">3. An Inspector Calls, J. B. Priestley (play, 1945)</h2>
+<h3>Author and background</h3>
+<ul>
+<li>J. B. Priestley (1894–1984), an English writer with socialist views. The play is a vehicle for those views.</li>
+<li>Written in 1945, after the Second World War.</li>
+<li>Wikipedia says the first performances were in 1945 at two Russian theatres, Moscow's Kamerny Theatre and Leningrad's Comedy Theatre, because no British venue was free. The London premiere followed at the New Theatre in 1946. The Wikipedia infobox gives a different date (7 June 1944), which is unresolved.</li>
+<li>Exam point: a 1912 setting, written for a 1945 audience, lets the play look back at the pre-war world with hindsight.</li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li><strong>Time:</strong> A single night in 1912. The month is not confirmed.</li>
+<li><strong>Place:</strong> The dining room of the Birlings' large home in Brumley, a fictional industrial town. Wikipedia places it in the north Midlands; one search snippet says "English Midlands."</li>
+<li><strong>Stage:</strong> One set, the dining room. The play has three acts and no scene divisions. The action runs in real time.</li>
+<li><strong>Context:</strong> Rigid class divisions. The audience knows the Titanic sinks and that war comes soon after the play's date.</li>
+</ul>
+<h3>Plot</h3>
+<p><strong>Act 1:</strong> The Birlings celebrate Sheila's engagement to Gerald Croft. Arthur Birling lectures on self-reliance and predicts a knighthood for himself. Inspector Goole arrives to report a young woman's suicide. He questions each family member. Arthur, Sheila and Gerald are all linked to her downfall. The act ends with Gerald's reaction, which suggests he knew her as Daisy Renton.</p>
+<p><strong>Act 2:</strong> Gerald admits the affair with Daisy, and Sheila returns his ring. Sybil refuses Eva's appeal for help through her charity and blames her for her own death. The Inspector reveals that Eric is the father of Eva's child, and Eric enters as the act ends (one summary).</p>
+<p><strong>Act 3:</strong> Eric confesses to assaulting Eva, starting an affair with her, and stealing from his father's firm (about £50) to support her. Sybil realises she has condemned her own son. The Inspector gives a speech on social responsibility and leaves. The family then decides he was a hoax.</p>
+<p><strong>The twist:</strong> A phone call. Police report that a young woman has just died and that an inspector is on his way. The parents' relief turns to fear.</p>
+<h3>Characters</h3>
+<ul>
+<li><strong>Inspector Goole:</strong> Questions the family about Eva's death. He is the play's mouthpiece for Priestley's ideas. Whether he is a real inspector is left open.</li>
+<li><strong>Arthur Birling:</strong> Factory owner. He sacked Eva after she led a strike for higher wages. He denies responsibility and is complacent.</li>
+<li><strong>Sybil Birling:</strong> Leads a charity. She refused Eva's appeal and blamed her. Proud and cold.</li>
+<li><strong>Sheila Birling:</strong> Got Eva sacked from Milwards out of jealousy over a dress. She changes most under questioning and is the most sympathetic character.</li>
+<li><strong>Eric Birling:</strong> Met Eva at the Palace Bar. Drunk, he forced his way into her lodgings. He got her pregnant and stole money to support her.</li>
+<li><strong>Gerald Croft:</strong> Had an affair with Eva as Daisy Renton and set her up in a flat. He ended the affair and returns Sheila's ring.</li>
+<li><strong>Edna:</strong> The maid. The sources give no link to Eva.</li>
+<li><strong>Eva Smith / Daisy Renton:</strong> Never appears on stage. She is sacked, kept and abandoned, and dies after drinking disinfectant.</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>Social responsibility:</strong> The Inspector's Act 3 speech argues that people are "members of one body."</li>
+<li><strong>Class inequality:</strong> The wealthy Birlings have power over Eva, a working-class woman with none.</li>
+<li><strong>Capitalism:</strong> Arthur's firm treats workers as costs. The play criticises this.</li>
+<li><strong>Generational divide:</strong> The older generation (Arthur, Sybil) refuses to accept blame. The younger (Sheila, Eric) shows remorse.</li>
+</ul>
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Dramatic irony:</strong> In the opening dinner, Arthur calls the Titanic "unsinkable" and dismisses the risk of war. The audience knows both are wrong.</li>
+<li><strong>Symbolism:</strong> The Titanic can stand for the Birlings' complacency. This is one study guide's reading.</li>
+<li><strong>Mouthpiece:</strong> The Inspector's Act 3 speech carries Priestley's socialist message.</li>
+<li><strong>Absent character:</strong> Eva never appears, so the audience builds her from others' accounts.</li>
+<li><strong>Name change:</strong> Eva Smith and Daisy Renton are the same woman. Gerald's reaction at the end of Act 1 reveals the link.</li>
+<li><strong>Twist ending:</strong> The final phone call reverses the family's relief.</li>
+<li><strong>Unity of time and place:</strong> One night, one room.</li>
+</ul>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>No flashback.</strong> The play runs in real time over one night, in three acts with no scene divisions.</li>
+<li>The past comes out through the Inspector's questioning, so past events are reconstructed on stage:</li>
+<li>Arthur sacks Eva after the strike. Shown in Act 1 through Arthur's answers.</li>
+<li>Sheila gets Eva sacked from Milwards. Shown in Act 1 through Sheila's account.</li>
+<li>Gerald's affair with Daisy Renton. Shown at the end of Act 1 and in Act 2 through Gerald's account.</li>
+<li>Sybil refuses Eva's appeal. Shown in Act 2 through Sybil's account.</li>
+<li>Eric's assault, affair and theft. Shown in Acts 2 and 3 through Eric's confession.</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li>Tense and ironic. The play moralises directly.</li>
+<li>Suspense builds through the Inspector's questioning, with each character's guilt revealed in turn.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li>Link the 1912 setting to the 1945 audience. The Titanic and the war are the hindsight points.</li>
+<li>Use dramatic irony to show that Arthur's confidence is blind.</li>
+<li>Contrast the change in Sheila and Eric with Arthur and Sybil's refusal to accept blame.</li>
+<li>Eva's absence from the stage reflects her powerlessness in class terms.</li>
+<li>The phone call is Priestley's warning that the consequences of irresponsibility continue.</li>
+<li>The Inspector is Priestley's mouthpiece for socialism, set against the capitalist Birlings.</li>
+<li>Use the single night, real time and interrogation to explain the play's tension.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li><strong>Premiere date:</strong> 7 June 1944 (infobox) versus 1945 (body text).</li>
+<li><strong>Region:</strong> "North Midlands" (Wikipedia) versus "English Midlands" (search snippet).</li>
+<li><strong>Phone calls:</strong> Sources differ on who made them. Wikipedia names the chief constable and infirmary. Another source credits Gerald's calls.</li>
+<li><strong>Eric's assault:</strong> Wikipedia uses "raped." Another source says he "forced his way" into her lodgings. A third says "implied to have sexually assaulted." This note uses the third wording.</li>
+<li><strong>Titanic and war lines:</strong> Placed in Act 1 because they come in the opening dinner. No fetched source gives an act number.</li>
+<li><strong>"Members of one body":</strong> From a search snippet. The Act 3 location is from one description of the speech.</li>
+<li><strong>Titanic symbolism:</strong> From a study guide snippet, not fetched.</li>
+<li><strong>Stage directions</strong> (lighting, doorbell, sound): not confirmed. SparkNotes, LitCharts and Britannica returned errors.</li>
+<li><strong>Author dates:</strong> From background knowledge, not checked.</li>
+<li><strong>Inspector's identity:</strong> Left open by the sources.</li>
+<li><strong>Edna:</strong> No link to Eva in the sources.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="4-a-man-for-all-seasons-robert-bolt-play-1960">4. A Man for All Seasons, Robert Bolt (play, 1960)</h2>
+<h3>Author and background</h3>
+<ul>
+<li>Robert Bolt (1924–1995).</li>
+<li>Opened at the Globe Theatre, London, on 1 July 1960. Moved to Broadway on 22 November 1961.</li>
+<li>An earlier version was a 1954 BBC radio play.</li>
+<li>The play is based on the life of Sir Thomas More (1478–1535), a lawyer, writer and Lord Chancellor of England.</li>
+<li>Film: 1966, directed by Fred Zinnemann, with Paul Scofield as More. It won six Academy Awards, including Best Picture and Best Actor.</li>
+<li>A 1988 television film starred Charlton Heston.</li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li><strong>Time:</strong> England, 1529 to 1535. More becomes Lord Chancellor in 1529 and dies in 1535.</li>
+<li><strong>Place:</strong> London, mainly in King Henry VIII's court and More's home. Hampton Court is named as a place where Cromwell and Rich meet (one search summary).</li>
+<li><strong>Historical background:</strong> Henry wants his marriage to Catherine of Aragon annulled so he can marry Anne Boleyn. The Pope refuses. Henry breaks with Rome. The Succession Act (1534) requires an oath, and the Act of Supremacy makes Henry head of the Church of England.</li>
+</ul>
+<h3>Plot</h3>
+<p><strong>Act One</strong>
+- More refuses to back Henry's divorce and to take the oath.
+- Henry visits More's home and says his soul is in peril without the divorce (one summary gives the scene number as 7).
+- Thomas Cromwell and Richard Rich plan to bring More down. Cromwell recruits Rich as an informer. Act One ends here.</p>
+<p><strong>Act Two</strong>
+- The play jumps forward about two years.
+- Scene 2: More resigns as Lord Chancellor. Norfolk accepts the resignation for the King. More warns Norfolk about talk of a Catholic rebellion in the north.
+- Later scenes: Cromwell says Rich is recording More's talk. The King offers a reward if More changes his mind. More refuses (scenes 5 and 6).
+- Rich gives false evidence that More denied the King's supremacy in private. Cromwell has More tried for treason.
+- The trial ends in a guilty verdict. More is executed. The play ends with the Common Man reading out the fates of the characters.</p>
+<h3>Characters</h3>
+<ul>
+<li><strong>Sir Thomas More:</strong> The central figure. He keeps his conscience and refuses to swear an oath he believes would betray his soul.</li>
+<li><strong>The Common Man:</strong> A narrator and stage device who plays several small roles (see below).</li>
+<li><strong>Henry VIII:</strong> The King who wants the divorce and the break with Rome.</li>
+<li><strong>Thomas Cromwell:</strong> An opportunist and More's chief enemy. He builds the case against More.</li>
+<li><strong>Richard Rich:</strong> A young man who sells his integrity for a post. He gives the perjured evidence.</li>
+<li><strong>Duke of Norfolk:</strong> More's former friend. He presses More to take the oath and accepts his resignation.</li>
+<li><strong>William Roper:</strong> More's son-in-law. Eager to act against Rich. Sources differ on his role.</li>
+<li><strong>Alice More:</strong> More's wife. She scolds him for resigning.</li>
+<li><strong>Margaret More:</strong> More's daughter. She helps him in the final scenes.</li>
+<li><strong>Cardinal Wolsey:</strong> The former Lord Chancellor, whose fall shows the cost of serving power.</li>
+<li><strong>Thomas Cranmer</strong> and <strong>Chapuys</strong> (the imperial ambassador): Both appear. Chapuys brings news of the planned rebellion.</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>Conscience and integrity:</strong> More will not put his soul under a mortal king's command.</li>
+<li><strong>Silence:</strong> More believes silence protects him under the law. The phrase "in silence is my safety" appears in one summary; it is not confirmed as the play's exact wording.</li>
+<li><strong>Law versus conscience:</strong> More insists the law must be respected, even when a man like Rich abuses it.</li>
+<li><strong>Power and corruption:</strong> Cromwell and Rich use the law for personal and political gain.</li>
+<li><strong>Friendship and loyalty:</strong> More's friendship with Norfolk breaks under pressure.</li>
+</ul>
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Brechtian narration:</strong> The Common Man speaks to the audience and reminds them they are watching a play. Example: he opens Act One as More's steward and addresses the audience.</li>
+<li><strong>Chorus:</strong> The Common Man is linked to the classical and Shakespearean chorus.</li>
+<li><strong>Irony:</strong> The Common Man's closing advice to avoid trouble is meant ironically, and the audience is invited to reject it.</li>
+<li><strong>Symbolism:</strong> Sea and water imagery stands for forces beyond human control. Clothing stands for identity that can be changed easily. No single line was confirmed.</li>
+<li><strong>Anachronism:</strong> Bolt's modern language gives More's beliefs a modern feel.</li>
+<li><strong>Allusion and historical reference:</strong> Real figures such as Cromwell, Wolsey and Henry VIII.</li>
+</ul>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>No flashback.</strong> No source mentions one.</li>
+<li><strong>Retrospective narration:</strong> None. The Common Man narrates events as they happen, in the Brechtian style.</li>
+<li><strong>Time shift:</strong> Act Two begins about two years after Act One.</li>
+<li><strong>Structure:</strong> Two acts, told in order. The scenes are episodic and follow More's downfall.</li>
+<li><strong>The Common Man's roles:</strong> More's steward or servant, a publican, a boatman, More's jailer, the jury foreman, and the executioner.</li>
+<li><strong>Why Bolt uses him:</strong> To draw the audience in and to show ordinary people's part in history. He also comments on the action.</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li>Serious, with a dry, witty style. Bolt's method is related to Brecht's.</li>
+<li>The Common Man's direct address and asides keep distance between the audience and the action.</li>
+<li>The tone turns tragic at the end.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li>Prescribed: NON-AFRICAN DRAMA, item 2, on the WAEC list.</li>
+<li>Key ideas: More's conscience against the King's power; Cromwell and Rich as opportunists; the Common Man's role; Brechtian narration; the two-act structure with a two-year jump.</li>
+<li>Likely questions: why More resigns; how Rich betrays him; why the Common Man narrates; the meaning of the title.</li>
+<li>Learn the Common Man's roles, Rich's perjury and More's refusal. Give scene numbers only where you have checked them.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li><strong>Title origin:</strong> Robert Whittington, a contemporary of More, wrote "A man for all seasons" in 1520. Wikipedia and one search summary agree. Encyclopedia.com says the text does not explain the title.</li>
+<li><strong>Scene counts:</strong> Act One has at least seven scenes. Act Two has at least six (scenes 2, 5 and 6 confirmed). Full counts are unverified.</li>
+<li><strong>Silver cup:</strong> One search summary says More gives Rich a silver cup to sell. One source only.</li>
+<li><strong>Trial foreman:</strong> Encyclopedia.com says Norfolk. Wikipedia says the Common Man plays the foreman. Unresolved.</li>
+<li><strong>Roper's role:</strong> Sources differ on whether he is pragmatic or a counterpoint to More.</li>
+<li><strong>Act of Supremacy:</strong> The Succession Act and the oath are confirmed. Whether the play discusses the Act at length is not.</li>
+<li><strong>1964 adaptation:</strong> One fetch says it was an Australian TV adaptation. Not confirmed.</li>
+<li><strong>"In silence is my safety":</strong> Check the text before quoting it.</li>
+<li><strong>Chelsea:</strong> The location of More's home is not confirmed by a fetched source.</li>
+<li><strong>Exam paper and marks:</strong> Not confirmed.</li>
+<li><strong>Printed author:</strong> The WAEC list prints "J. D. Priestley" for <em>An Inspector Calls</em> (see the spelling note at the top), not for this play.</li>
+<li><strong>Sources blocked:</strong> SparkNotes, Gradesaver, Britannica, Shmoop, SuperSummary and Encyclopedia.com returned errors or empty content for some workers.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="5-she-walks-in-beauty-lord-byron-poem-1814-1815">5. She Walks in Beauty, Lord Byron (poem, 1814–1815)</h2>
+<p>Listed on the WAEC list as Non-African Poetry, item 1.</p>
+<h3>Author and background</h3>
+<ul>
+<li>George Gordon Byron (1788–1824), known as Lord Byron, an English Romantic poet.</li>
+<li>Written in June 1814, after Byron saw his cousin Anne Beatrix Wilmot at a London party. She wore a black dress decorated with spangles.</li>
+<li>Date of the party: 11 June (Wikipedia) and the poem written the next morning. Poets.org and Storgy give 12 June.</li>
+<li>First published in 1815 in <em>Hebrew Melodies</em>, a set of songs with music by Isaac Nathan, published by John Murray. The title page is dated May 1815.</li>
+<li>It is a lyric written for that collection, not a story or a play.</li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li>The poem names no place and no time. Its imagery ("cloudless climes," "starry skies") suggests a clear night.</li>
+<li>The real occasion was a party in London.</li>
+</ul>
+<h3>Plot</h3>
+<p>The poem has no plot. A speaker looks at a woman and praises her beauty over three stanzas.
+- <strong>Stanza I:</strong> Her beauty mixes the best of "dark and bright." Her face and eyes soften this mix into a "tender light" that day cannot give.
+- <strong>Stanza II:</strong> One more shade or one less ray would have spoiled her "nameless grace." Her calm, sweet thoughts show on her face, and the poem praises their "dwelling-place."
+- <strong>Stanza III:</strong> Her cheek, brow and smiles show a life of goodness. The poem ends with her "mind at peace" and a "heart whose love is innocent."</p>
+<h3>Characters</h3>
+<ul>
+<li><strong>The woman:</strong> Unnamed in the text. Tradition identifies her as Anne Beatrix Wilmot, from outside the poem.</li>
+<li><strong>The speaker:</strong> An unnamed observer who admires her from outside. He does not speak to her or tell his own story.</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>Balance of opposites:</strong> Beauty comes from a balance of light and dark. Stanza II shows how small changes would spoil it.</li>
+<li><strong>Outer beauty shows inner goodness:</strong> Her looks show a calm mind and an innocent heart. Stanza III makes this link most clearly.</li>
+<li><strong>Calm and peace:</strong> The poem values quiet, soft beauty over passion or excitement.</li>
+<li><strong>Ideal beauty:</strong> The woman is a model of balance and virtue, not a real person with faults.</li>
+</ul>
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Simile:</strong> "She walks in beauty, like the night" (I.1).</li>
+<li><strong>Antithesis:</strong> "all that's best of dark and bright" (I.3).</li>
+<li><strong>Parallel balance:</strong> "One shade the more, one ray the less" (II.1).</li>
+<li><strong>Imagery:</strong> "starry skies" (I.2) and "raven tress" (II.3), which appeal to sight.</li>
+<li><strong>Alliteration:</strong> "cloudless climes" (I.2), with the repeated "cl" sound.</li>
+<li><strong>Metaphor:</strong> Thoughts have a "dwelling-place" (II.6). A mind is treated as a home.</li>
+<li><strong>Personification:</strong> "thoughts serenely sweet express" (II.5). Also "the smiles that win" (III.3).</li>
+<li><strong>Contrast in pairs:</strong> "So soft, so calm, yet eloquent" (III.2). Some guides call this an oxymoron. It is better described as a pair of contrasting qualities.</li>
+<li><strong>Exclamation:</strong> "A heart whose love is innocent!" (III.6) ends the poem on a firm note.</li>
+</ul>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>Structure:</strong> Three stanzas of six lines, 18 lines in all.</li>
+<li><strong>Metre:</strong> Iambic tetrameter.</li>
+<li><strong>Rhyme:</strong> Disputed. The printed text suggests ABABCC, with "night" and "bright" rhyming. One source says ABABAB. Check your copy.</li>
+<li><strong>Narration:</strong> A third-person observer speaks in the present tense about "She." The poem does not change speaker or time.</li>
+<li><strong>Flashback:</strong> No true flashback. One brief shift into past time: "But tell of days in goodness spent" (III.4). This is a short reference to her past life, not a scene.</li>
+<li><strong>Movement:</strong> From outer look (I) to balance (II) to character (III).</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li>Calm, admiring and measured. Simple, smooth language.</li>
+<li>The steady rhythm and regular rhyme suit the calm subject.</li>
+<li>It praises without passion or intimacy. Romantic in subject, restrained in style.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li>Central idea: beauty is a balance of light and dark, and inner goodness shows outside.</li>
+<li>Give each stanza a focus: I (the mix of dark and bright), II (balance and thought), III (character and innocence).</li>
+<li>Useful quotes: "dark and bright" (I.3), "One shade the more, one ray the less" (II.1), "A heart whose love is innocent!" (III.6).</li>
+<li>Answer in this order: point, quote with line, device, effect on the reader.</li>
+<li>Do not call it a love poem without qualifying it. Critics read it mainly as a reflection on beauty.</li>
+<li>Do not repeat the ABABAB claim from student sites without checking it.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li><strong>Publication year:</strong> 1815 (first publication in <em>Hebrew Melodies</em>), written in 1814.</li>
+<li><strong>Host of the party:</strong> Only one source names Lady Sitwell's house. Another search snippet also names Lady Sitwell, citing Marchand (1987). Unconfirmed.</li>
+<li><strong>Relationship:</strong> Sources differ. One says Anne Beatrix Wilmot was the wife of Byron's first cousin Sir Robert Wilmot; another says she was Mrs. Robert John Wilmot; search results call her a cousin by marriage.</li>
+<li><strong>Party and writing dates:</strong> 11 June versus 12 June.</li>
+<li><strong>Rhyme scheme:</strong> ABABCC (printed text) versus ABABAB (two sites).</li>
+<li><strong>Placement:</strong> A search summary says the poem opened <em>Hebrew Melodies</em>. Not confirmed.</li>
+<li><strong>Syllabus:</strong> Confirmed on the WAEC list image.</li>
+<li><strong>Sources blocked:</strong> Poetry Foundation and eNotes returned HTTP 403.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="6-the-nun-s-priest-s-tale-shortened-geoffrey-chaucer-tale-late-14th-century">6. The Nun's Priest's Tale (shortened), Geoffrey Chaucer (tale, late 14th century)</h2>
+<p>Listed on the WAEC list as Non-African Poetry, item 2, "(shortened)."</p>
+<h3>Author and background</h3>
+<ul>
+<li>Geoffrey Chaucer (c. 1343–1400). The tale is one of <em>The Canterbury Tales</em>, a collection of stories told by pilgrims on the road to Canterbury.</li>
+<li>A beast fable and mock epic drawn from the Reynard the Fox tradition (Wikipedia, citing <em>Le Roman de Renart</em>).</li>
+</ul>
+<h3>Version used</h3>
+<ul>
+<li>The WAEC printed excerpt (PDF pp. 7–8) is a modern English verse rendering, labelled "(shortened)." The PDF does not name the translator.</li>
+<li>The excerpt covers only the opening: the widow, Chanticleer and Pertelote. The plot beyond that comes from secondary summaries (LitCharts, eNotes, Storgy).</li>
+<li>Names and allusions come from the Middle English text (Standard Ebooks).</li>
+<li><strong>Check the exam's own text for the rest of the tale.</strong></li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li><strong>Place:</strong> A poor widow's small cottage beside a meadow and a grove. Her yard is "enclosed about / By a stockade and a dry ditch without" (WAEC p. 8). "Farm" is a modern reading; the text says cottage and yard.</li>
+<li><strong>Time:</strong> The morning after a dream. The fox's attack falls on a Friday (Standard Ebooks).</li>
+<li><strong>Chase:</strong> The yard, then the wood, where the fox runs.</li>
+<li><strong>Frame:</strong> The Nun's Priest tells the tale on the pilgrimage, after the Knight interrupts the Monk.</li>
+</ul>
+<h3>Plot</h3>
+<ol>
+<li><strong>Opening:</strong> The widow lives simply with her two daughters. Her rooster, Chanticleer, crows more regularly than any clock (WAEC p. 8). He has seven hens. His favourite is Pertelote.</li>
+<li><strong>Dream:</strong> Chanticleer dreams of a reddish beast like a fox and wakes in fear.</li>
+<li><strong>Debate:</strong> Pertelote calls him a coward. She blames indigestion and suggests a laxative. Chanticleer cites authorities, including Macrobius, Scipio, Croesus and Daniel. He then sets his own counsel aside and defers to his wife.</li>
+<li><strong>The fox:</strong> The fox, Dan Russel, waits in the yard.</li>
+<li><strong>Capture:</strong> Russel flatters Chanticleer's singing and his father's. Chanticleer closes his eyes and stretches his neck to crow. The fox seizes him by the throat and runs for the wood.</li>
+<li><strong>Chase:</strong> The widow, her daughters and the animals pursue. Chanticleer persuades the fox to taunt them. When the fox opens his mouth, Chanticleer flies into a tree.</li>
+<li><strong>Ending:</strong> The fox tries flattery again. Chanticleer refuses ("Thou shalt no more through thy flattery"). The narrator draws the moral and ends with a prayer.</li>
+</ol>
+<h3>Characters</h3>
+<ul>
+<li><strong>Chanticleer (also Chaunticleer):</strong> The proud, vain rooster. He sings well and reasons from dream authorities, then is tricked and rescued by his own cleverness.</li>
+<li><strong>Pertelote:</strong> His favourite hen. Practical and scornful. The excerpt describes her: "Courteous she was, discreet and debonair."</li>
+<li><strong>Russell (Russel in some editions):</strong> The flattering fox. Storgy calls him "Daun Russell."</li>
+<li><strong>The widow:</strong> Poor and patient. Unnamed, with two daughters.</li>
+<li><strong>The Nun's Priest:</strong> The narrator. Called "Sir John" in the Prologue (Standard Ebooks only).</li>
+<li><strong>Frame figures:</strong> The Knight, the Monk and the Host.</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>Vanity and flattery:</strong> The main moral. Chanticleer's pride lets the fox trick him.</li>
+<li><strong>Dreams and their meaning:</strong> Chanticleer argues that dreams reveal truth. Pertelote argues for common sense.</li>
+<li><strong>Male pride and female advice:</strong> A satirical reading is that men ignore women's advice.</li>
+<li><strong>Learning versus common sense:</strong> Chanticleer's learned display is comic in a barnyard setting.</li>
+<li><strong>Courtly style and peasant life:</strong> The grand style is applied to a humble cottage and chickens.</li>
+</ul>
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Mock-heroic (mock epic):</strong> The hens wail louder than the wives of Troy (eNotes).</li>
+<li><strong>Allusion:</strong> The fox is addressed as "Greek Sinon" (Standard Ebooks), recalling the traitor who helped bring down Troy.</li>
+<li><strong>Apostrophe:</strong> The narrator addresses Venus in the lament after the capture (Standard Ebooks).</li>
+<li><strong>Hyperbole:</strong> "Far, far more regular than any clock" (WAEC p. 8).</li>
+<li><strong>Verbal irony:</strong> Russel's praise of Chanticleer's singing is a trap.</li>
+<li><strong>Dramatic irony:</strong> The reader knows the fox is near while Chanticleer sings and boasts.</li>
+<li><strong>Personification:</strong> The animals speak and reason like people.</li>
+<li><strong>Foreshadowing:</strong> The dream of the fox warns of the capture.</li>
+</ul>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>Structure:</strong> A frame. It opens with the Prologue, then the tale, then the Host's praise of the Priest.</li>
+<li><strong>Narration:</strong> First person. The narrator addresses his audience, makes asides and draws the moral directly.</li>
+<li><strong>Flashback:</strong> None. The tale is told in the past tense ("Once, long ago"), which is ordinary narration.</li>
+<li><strong>Past-time material inside the tale:</strong> Chanticleer's examples of past events, such as Croesus and Daniel.</li>
+<li><strong>Frame:</strong> The pilgrimage is the present time. The tale is told inside it.</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li>Comic, mock-serious and satirical.</li>
+<li>The WAEC excerpt uses rhyming couplets ("widow / meadow," "dale / tale") in plain, simple lines.</li>
+<li>The narrator's learned, grand vocabulary is set against a small barnyard.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li>Category: Non-African Poetry, item 2 (the WAEC list). It is a poem in verse form, not prose.</li>
+<li>Core characters: Chanticleer, Pertelote, Russell (the fox), and the widow.</li>
+<li>Core themes: flattery and vanity, dreams and reason, and satire.</li>
+<li>Devices to name: mock-heroic, allusion, apostrophe, hyperbole, irony.</li>
+<li>Structure answer: a frame narrative. The Nun's Priest tells the tale on the pilgrimage. There is no flashback.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li><strong>Full abridged text:</strong> The WAEC excerpt covers only the opening. Plot for the rest comes from secondary summaries.</li>
+<li><strong>Translator:</strong> Not named in the WAEC PDF. A search suggested Nevill Coghill's Penguin translation, but that was not confirmed.</li>
+<li><strong>Line numbers:</strong> None found in the fetched sources.</li>
+<li><strong>Length:</strong> Wikipedia's "695-line" figure was not checked. It may include the Prologue and Epilogue.</li>
+<li><strong>Chanticleer's Latin:</strong> eNotes says he mistranslates a Latin line. Single source.</li>
+<li><strong>Jack Straw (1381):</strong> The name appears in the text. The 1381 revolt was not verified.</li>
+<li><strong>"Gaufrid":</strong> The narrator addresses "Gaufrid" in Standard Ebooks. Who this is was not confirmed.</li>
+<li><strong>Moral wording:</strong> Storgy and Standard Ebooks differ. Quote the line from the exam's own text.</li>
+<li><strong>Fox's past trick on Chanticleer's father and mother:</strong> Wikipedia only.</li>
+<li><strong>Widow's "farm":</strong> A modern reading, not the text's word.</li>
+<li><strong>Sources blocked:</strong> Pressbooks, SparkNotes and CliffsNotes returned errors.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="7-digging-seamus-heaney-poem-1966">7. Digging, Seamus Heaney (poem, 1966)</h2>
+<p>Listed on the WAEC list as Non-African Poetry, item 3.</p>
+<h3>Author and background</h3>
+<ul>
+<li>Seamus Heaney wrote <em>Death of a Naturalist</em>, published in 1966 by Faber and Faber. It holds 34 short poems. "Digging" is the first and one of Heaney's best-known.</li>
+<li>He grew up in a rural farming family in Ireland. His father dug potatoes, and his grandfather cut turf (peat) for fuel on the family bog.</li>
+<li>Heaney chose writing over farm work.</li>
+<li>Heaney's birth, death and Nobel Prize dates were not checked.</li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li><strong>Present:</strong> The speaker's home, where he sits writing at a window.</li>
+<li><strong>Below the window:</strong> The garden, where his father digs.</li>
+<li><strong>Memory:</strong> The family bog, where his grandfather cut turf. One source names it "Toner's bog."</li>
+<li><strong>Past:</strong> The speaker's memory of his father digging potato drills, about twenty years earlier, and of the grandfather's work further back.</li>
+<li><strong>Country:</strong> Ireland (Interesting Literature). The county is not confirmed.</li>
+</ul>
+<h3>Plot</h3>
+<ol>
+<li>The speaker sits with his pen. He hears a spade in the gravel below his window.</li>
+<li>He looks down and sees his father digging.</li>
+<li>His memory moves back to his father digging potato drills, about twenty years earlier.</li>
+<li>The memory moves further back, to his grandfather cutting turf on the bog. The poem recalls the wet peat sound.</li>
+<li>The speaker returns to the present. He admits he has no spade like the men before him.</li>
+<li>He will work with his pen instead. The last line is "I'll dig with it."</li>
+</ol>
+<h3>Characters</h3>
+<ul>
+<li><strong>The speaker:</strong> A poet at his desk. He admires the older men's skill and is self-aware about choosing different work.</li>
+<li><strong>The father:</strong> A skilled digger. The poem contrasts his past potato digging with his present work on flowerbeds.</li>
+<li><strong>The grandfather:</strong> A turf cutter on the bog, shown as a model of skill.</li>
+<li><strong>Earlier generations:</strong> The forefathers the speaker places himself beside, through the spade and the pen.</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>Heritage:</strong> The speaker keeps his family's values (skill, diligence, persistence) but not their trade.</li>
+<li><strong>Labour and craft:</strong> Digging and writing are both treated as serious, skilled work.</li>
+<li><strong>Writing versus manual work:</strong> The physical work outside the window is set against the mental work of writing. Interesting Literature reads the two as connected, not opposed.</li>
+<li><strong>Memory and the past:</strong> The poem moves back through generations.</li>
+<li><strong>Identity:</strong> The speaker's identity as a writer is rooted in his rural family.</li>
+</ul>
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Simile:</strong> The pen is "snug as a gun" (line 2, LitCharts). It links the pen to power and tension.</li>
+<li><strong>Extended metaphor:</strong> Writing is digging. The pen becomes a spade, and the last line completes the comparison.</li>
+<li><strong>Alliteration:</strong> "curt cuts" gives a blunt, hard sound (Interesting Literature).</li>
+<li><strong>Onomatopoeia:</strong> "squelch and slap" recreates the sound of wet peat being cut (lines 25–26, LitCharts).</li>
+<li><strong>Rhyme:</strong> "sound," "ground" and "down" rhyme in lines 3–5 (LitCharts).</li>
+<li><strong>Caesura:</strong> A pause after "rests" in line 2 (LitCharts).</li>
+<li><strong>Monosyllables:</strong> The closing words "I'll dig with it" give a plain, firm final tone.</li>
+</ul>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>Form:</strong> Free verse. Eight stanzas of varying length (LitCharts and one summary agree). Not checked against the printed text. Count them yourself.</li>
+<li><strong>Narration:</strong> First person. The present is at the window; the past is recalled through memory.</li>
+<li><strong>Flashback: yes.</strong> The poem shifts into memory of the father's potato digging, about twenty years earlier. It then moves further back to the grandfather's turf cutting. The exact stanza is not confirmed.</li>
+<li><strong>Shape:</strong> The poem almost comes full circle. It opens and closes with the pen in the speaker's hand (Interesting Literature).</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li><strong>Tone:</strong> Admiring toward the father and grandfather, reflective, then firm and resolved at the end.</li>
+<li><strong>Style:</strong> Concrete physical imagery, sound-heavy diction and short blunt words. The sound of the poem matches the digging it describes.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li><strong>Key idea:</strong> The pen is not a weapon. The opening simile is a challenge, and the ending turns the pen into a working tool like the spade.</li>
+<li><strong>Likely question angles:</strong> How the poet presents his father and grandfather; the pen, gun and spade image; how memory shapes the poem.</li>
+<li><strong>Quote bank (short):</strong> "snug as a gun," "squelch and slap," "I'll dig with it."</li>
+<li><strong>Revision tip:</strong> Learn two or three quotes with their line or stanza locations, and link each to a device.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li><strong>Printed text:</strong> Not read. Stanza count and line numbers come mostly from LitCharts.</li>
+<li><strong>Stanza count:</strong> Eight, from LitCharts and one summary. Not checked.</li>
+<li><strong>Line references (2, 15, 30 for the spade):</strong> LitCharts only.</li>
+<li><strong>"Thumb" and "gun" as slant rhyme:</strong> Doubtful, left out.</li>
+<li><strong>"Rasping":</strong> Not confirmed.</li>
+<li><strong>"Twenty years" and the flashback stanza:</strong> From search summaries.</li>
+<li><strong>Toner's bog:</strong> Named only by LitCharts. Wikipedia says the grandfather worked the bog on the family farm.</li>
+<li><strong>Assonance and enjambment:</strong> LitCharts placeholder text, not reported.</li>
+<li><strong>"Living roots" pun:</strong> One reader's view.</li>
+<li><strong>Author facts:</strong> Birth, death, Nobel Prize and family details not checked.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="8-still-i-rise-maya-angelou-poem-1978">8. Still I Rise, Maya Angelou (poem, 1978)</h2>
+<p>Listed on the WAEC list as Non-African Poetry, item 4.</p>
+<h3>Author and background</h3>
+<ul>
+<li>Maya Angelou (1928–2014), an American poet, memoirist and writer. Dates from background knowledge, not checked.</li>
+<li>"Still I Rise" was first published in 1978 in <em>And Still I Rise</em>. Random House published the collection in the United States on 12 August 1978.</li>
+<li>It is Angelou's third volume of poetry and holds 32 poems in three parts. The title poem is in the third part.</li>
+<li>The collection deals with Southern racism, Black pride and the survival of Black women. Reviews were mixed.</li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li>The poem names no place or time. It is a direct address: one speaker turns to a "you," an oppressor, and answers that person.</li>
+<li>Readers place it in American racism and the civil-rights era. That comes from the collection's context, not the poem's text.</li>
+<li>Imagery moves between nature (dust, air, sun, moon, tides) and wealth and home (oil wells, a living room, gold mines in a backyard).</li>
+</ul>
+<h3>Plot</h3>
+<p>The poem has no story. It is a series of defiant replies. Stanza numbering is disputed (see below); one common count gives nine.
+- <strong>Stanza 1:</strong> The "you" tries to write the speaker and her people off. She answers that she will rise like dust.
+- <strong>Stanza 2:</strong> She asks whether her confidence upsets the "you." Oil imagery shows her success.
+- <strong>Stanza 3:</strong> She compares her persistence to the sun, the moon and the tides.
+- <strong>Stanza 4:</strong> She asks whether the "you" wants to see her broken, head bowed and eyes lowered.
+- <strong>Stanza 5:</strong> She asserts her pride and refuses to bow.
+- <strong>Stanza 6:</strong> Cruel words may come, but she rises "like air."
+- <strong>Stanza 7:</strong> Sensual and material imagery appears, and her confidence grows.
+- <strong>Stanzas 8–9:</strong> She rises out of past pain and ends with the refrain "Still I rise."</p>
+<h3>Characters</h3>
+<ul>
+<li><strong>The speaker:</strong> A first-person voice, defiant, proud and self-assured. Sources read her as a Black woman. The poem does not name her race or gender.</li>
+<li><strong>The "you":</strong> An unnamed oppressor. The speaker addresses this person throughout.</li>
+<li><strong>Her people:</strong> The group the "you" tries to write down. The speaker speaks for them.</li>
+<li><strong>History and ancestors:</strong> The past that shaped her, referred to in the later stanzas.</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>Resilience:</strong> The speaker keeps rising after every attack.</li>
+<li><strong>Defiance against oppression:</strong> The poem answers racism and contempt directly.</li>
+<li><strong>Dignity and self-worth:</strong> Pride is treated as a right, not a flaw.</li>
+<li><strong>Black womanhood:</strong> The speaker's confidence and sensuality are central.</li>
+<li><strong>History as wound and strength:</strong> The past is painful, but it is not the end.</li>
+<li><strong>Hope and renewal:</strong> Nature shows that rising is regular and reliable.</li>
+</ul>
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Wordplay and double meaning:</strong> "write down in history" (stanza 1). It can mean recording history or falsifying it.</li>
+<li><strong>Simile:</strong> She rises "like dust" (stanza 1) and "like air" (stanza 6). Air shows lightness and naturalness.</li>
+<li><strong>Natural symbolism:</strong> The sun, moon and tides (stanza 3) stand for dependable renewal.</li>
+<li><strong>Rhetorical question:</strong> "Did you want to see me broken?" (stanza 4). The question makes the "you" answer for their cruelty.</li>
+<li><strong>Refrain:</strong> "Still I rise" repeats in the last stanzas and drives the final message.</li>
+<li><strong>Metaphor:</strong> The speaker calls herself a "black ocean" in the final stanza, a vast and powerful force.</li>
+<li><strong>Wealth imagery:</strong> Oil wells (stanza 2) show her success and self-possession.</li>
+<li><strong>Double meaning:</strong> "hatefulness" (stanza 6), one source reads it as both detestable attitudes and hatred of others.</li>
+<li><strong>Irony:</strong> No source identifies irony in this poem.</li>
+</ul>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>Form:</strong> A lyric poem in the first person, a single speaker talking to a "you." Written for recitation, in a spoken-word style.</li>
+<li><strong>Stanzas:</strong> Disputed. One source describes stanzas 1–7 as four-line quatrains with an ABCB rhyme scheme and irregular rhythm, with the last two longer and carrying the refrain.</li>
+<li><strong>Flashback: none.</strong> The poem refers to the past in general. "Out of the huts of history's shame" and "the past rooted in pain" are references, not memories. It moves between present defiance and images of history and nature.</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li>Defiant, confident, celebratory and hopeful. It confronts oppression directly but stays overwhelmingly positive.</li>
+<li>Plain and direct, with repetition, questions and short, punchy lines.</li>
+<li>Sensual imagery in the middle stanzas adds a bold, self-assured voice.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li>Know the refrain "Still I rise" and say what it does at the close.</li>
+<li>Know the three image groups: nature (dust, air, sun, moon, tides), wealth (oil, gold) and history (the past rooted in pain).</li>
+<li>Explain the speaker's answer to the "you." Each stanza answers an attack.</li>
+<li>Explain the wordplay in "write down in history."</li>
+<li>Link the poem to Black womanhood and to resistance against racism.</li>
+<li>Describe the tone with precise words: defiant, confident, hopeful.</li>
+<li>Check the stanza count and rhyme in your own copy before you write about them.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li><strong>Stanza count:</strong> Poets.org gives eight stanzas (lines 4, 8, 4, 4, 4, 4, 6, 9). Other sources give nine. Line totals match (43 lines), so the 8-line block is probably two quatrains. An inference.</li>
+<li><strong>Refrain location:</strong> Poets.org places it in stanzas 7 and 8. One source says the final stanza has fifteen lines of refrain, which conflicts with the nine-line final stanza. Not resolved.</li>
+<li><strong>Rhyme of stanzas 8–9:</strong> One summary gives ABABCC and ABABCCBBB. Not confirmed.</li>
+<li><strong>Student-site stanza summaries:</strong> Low reliability. Not relied on beyond what other sources repeat.</li>
+<li><strong>Irony:</strong> The brief hinted at irony, but no source read identifies it.</li>
+<li><strong>Speaker's race and gender:</strong> Not stated in the text. The reading comes from context and critical analysis.</li>
+<li><strong>Setting:</strong> The "Southern" and civil-rights framing comes from the collection's context.</li>
+<li><strong>Sources blocked:</strong> Poetry Foundation, LitCharts (empty), GradeSaver, SparkNotes, PoemAnalysis and studienet returned errors. Usable sources: Poets.org, Wikipedia (<em>And Still I Rise</em>) and Interesting Literature.</li>
+<li><strong>Author dates:</strong> From background knowledge.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="9-the-telephone-call-fleur-adcock-poem-1986">9. The Telephone Call, Fleur Adcock (poem, 1986)</h2>
+<p>Listed on the WAEC list as Non-African Poetry, item 5. The WAEC PDF prints the full poem (48 lines).</p>
+<h3>Author and background</h3>
+<ul>
+<li>Fleur Adcock, born 1934 in Papakura, New Zealand.</li>
+<li>The poem appears in <em>The Incident Book</em>, Oxford University Press, 1986. One search summary gives a date of 18 September 1986, which was not verified.</li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li>The poem names no place. The speaker takes a phone call, probably at home.</li>
+<li>The money is in "pounds," so the setting is probably the UK. This is an inference.</li>
+<li>The call is from a firm called Universal Lotteries.</li>
+</ul>
+<h3>Plot</h3>
+<p>One phone call, told in order. Line numbers follow the WAEC text.
+- <strong>Lines 1–4:</strong> The caller asks if the speaker is sitting down. The caller says the speaker has won the "Ultra-super Global Special."
+- <strong>Lines 5–8:</strong> The caller asks what the speaker would do with a million pounds. The callers laugh at the idea of becoming a millionaire.
+- <strong>Lines 9–24:</strong> The callers ask how the speaker feels. The speaker says their head has "floated off" and compares it to a flying saucer. The callers encourage the speaker to cry.
+- <strong>Lines 25–32:</strong> The speaker asks about the company and says they have not bought a ticket in years. The callers say they are "Universal" and run a "Retrospective Chances Module."
+- <strong>Lines 33–40:</strong> The callers explain that they buy old lottery entries and pick a winner by computer. The speaker says they will believe it when they see the cheque.
+- <strong>Lines 41–48:</strong> The callers say there is no cheque. "We don't deal in money." The prize is an "experience." They say "Have a nice day!" and the line goes dead.</p>
+<h3>Characters</h3>
+<ul>
+<li><strong>The speaker:</strong> An unnamed adult. The text does not state gender. The speaker moves from hope to silence.</li>
+<li><strong>The callers:</strong> A group speaking as "they" for Universal Lotteries. Smooth and manipulative. They build excitement, then withdraw the reward.</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>False hope:</strong> The speaker is excited, then left with nothing.</li>
+<li><strong>Chance and luck:</strong> The lottery stands for fate and the hope of a lucky break.</li>
+<li><strong>Manipulation:</strong> The callers manage the speaker's feelings ("have a little cry").</li>
+<li><strong>Commercial trickery:</strong> The firm sells "experiences" in place of money.</li>
+</ul>
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Dialogue:</strong> Most of the poem is direct speech between the speaker and the callers. It makes the call feel real.</li>
+<li><strong>Irony:</strong> "That's your prize" (line 46). The prize is nothing, so the phrase is ironic.</li>
+<li><strong>Simile:</strong> The speaker's head "revolving like a flying saucer" (line 16).</li>
+<li><strong>Hyperbole:</strong> The speaker's head has "floated off, out through the window" (lines 14–15).</li>
+<li><strong>Rhetorical question:</strong> "What would you do with a million pounds?" (line 5).</li>
+<li><strong>Repetition:</strong> "ticket" in lines 27, 30 and 33; "million" in lines 5, 6, 8 and 24.</li>
+<li><strong>Broken speech:</strong> Dashes and ellipses (lines 11 and 39) show the speaker losing control of speech.</li>
+<li><strong>Enjambment:</strong> Lines 23–24 run on without a stop.</li>
+<li><strong>Anticlimax (bathos):</strong> The poem builds excitement, then drops to "no cheque" and a bland "Have a nice day!"</li>
+<li><strong>Symbol:</strong> The lottery stands for chance and hope.</li>
+</ul>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>Structure:</strong> 48 lines. No regular rhyme or metre. The WAEC text breaks into blocks of 4, 4, 16, 8, 8 and 8 lines. One study guide describes six eight-line stanzas, which does not match the WAEC layout.</li>
+<li><strong>Narration:</strong> The speaker tells the call after it has ended, in the past tense ("They asked me," "I said"). The callers' lines are in single quotation marks, so the two voices stay apart.</li>
+<li><strong>Flashback: none.</strong> The poem stays in the one call. It mentions past lottery entries ("for years and years," line 28; "once at least," line 35), which are short references, not memory scenes.</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li>Starts playful and excited, then turns mocking and flat. LitCharts calls the ending "bitterly anticlimactic."</li>
+<li>Plain, conversational language that sounds like real speech, with dashes and pauses.</li>
+<li>No heavy imagery. The power comes from the gap between what the callers promise and what they deliver.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li>Confirmed on the WAEC list (Non-African Poetry, item 5).</li>
+<li>Good answer points: how the poet builds false hope, how the callers manipulate the speaker, and how the ending reverses expectations.</li>
+<li>Key short quotes to check in your copy: "That's your prize" (line 46), "We don't deal in money" (line 42), "Experiences are what we deal in" (line 43), "And the line went dead" (line 48).</li>
+<li>Link the ending to theme: the lottery is a trick, and the poem exposes it.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li><strong>Speaker's gender:</strong> One summary calls the speaker "she." The text does not state gender.</li>
+<li><strong>Stanza division:</strong> LitCharts says six eight-line stanzas. The WAEC layout gives blocks of 4, 4, 16, 8, 8 and 8 lines. The WAEC layout is used here.</li>
+<li><strong>Setting:</strong> The UK setting is an inference from "pounds."</li>
+<li><strong>Publication date:</strong> 18 September 1986 (one summary), not verified.</li>
+<li><strong>Adcock's life in England:</strong> Not verified.</li>
+<li><strong>Prescription claims:</strong> Two sales pages say it is prescribed for WASSCE and NECO. Only the WAEC list was checked.</li>
+<li><strong>Sources blocked:</strong> Poem Analysis (HTTP 403) and the Adcock author page (HTTP 504). Two study-guide sites gave no analysis text.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="10-the-stone-wilfrid-wilson-gibson-poem-1912">10. The Stone, Wilfrid Wilson Gibson (poem, 1912)</h2>
+<p>Listed on the WAEC list as Non-African Poetry, item 6, spelled "Wilfred Wilson Gipson." The correct spelling is Wilfrid Wilson Gibson.</p>
+<h3>Author and background</h3>
+<ul>
+<li>Wilfrid Wilson Gibson (2 October 1878 – 26 May 1962), an English poet linked with the Georgian poets. Many of his poems are set in Northumberland.</li>
+<li>"The Stone" is the opening tale of <em>Fires – Book I: The Stone, and Other Tales</em>. Elkin Mathews published it in London in 1912. The book is dedicated to George Clausen. The last poem in the book is dated 1910–1911, so the poems were probably written around then.</li>
+<li>One reference spells the first name "Wilfred." The sources give "Wilfrid."</li>
+</ul>
+<h3>Setting</h3>
+<ul>
+<li>The poem takes place at a quarry. A young quarryman dies there when a falling rock hits him.</li>
+<li>The carving happens at night, in or near the narrator's home or workshop, by candlelight. One source only.</li>
+<li>No source names the place. Northumberland is not confirmed for this poem.</li>
+</ul>
+<h3>Plot</h3>
+<ol>
+<li>The woman asks the stonecutter to carve a headstone for her dead lover. She asks as if she cannot believe it.</li>
+<li>The man was killed in a quarry accident a few days before the opening (one source says "three days earlier").</li>
+<li>The narrator agrees. Each night she comes to watch him work. She sits in silence and watches every stroke.</li>
+<li>When the stone is finished, she says her lover's name, sighs and leaves. She does not come back.</li>
+<li>The next night, the narrator works alone and cuts her name onto the same stone. This is the final action of the poem.</li>
+</ol>
+<h3>Characters</h3>
+<ul>
+<li><strong>The woman:</strong> The lover's sweetheart. She speaks at the start, then is silent during the carving. Her grief is cold and private. One source says she is "turned to stone."</li>
+<li><strong>The stonecutter (narrator):</strong> Carves the headstone and speaks in the first person (one source). A study guide has him visiting to break the news, which conflicts with the other sources.</li>
+<li><strong>The dead quarryman:</strong> Never speaks. His name is given only at the end, when the woman says it.</li>
+</ul>
+<h3>Themes</h3>
+<ul>
+<li><strong>Grief:</strong> The poem shows a sudden death and the quiet damage it does. A study guide calls this the "shattering impact of unexpected death."</li>
+<li><strong>Silence:</strong> The woman never speaks during the carving. Her silence says more than words could.</li>
+<li><strong>Memorial:</strong> The headstone is a permanent record of a short life. The narrator's carving of her name is a second, private memorial.</li>
+<li><strong>Work and ritual:</strong> The stonecutter's nightly work is his way of helping her grieve.</li>
+<li><strong>Main message (the research worker's reading, not a quoted source):</strong> Sudden loss can break a person in silence. A lasting memorial is one way to honour the dead, and the only help the stonecutter can give.</li>
+</ul>
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Repetition:</strong> The woman asks her question again, in disbelief. It shows she cannot accept the death.</li>
+<li><strong>Symbol:</strong> The stone is the headstone. The title also points to the woman's hardened grief, the "turned to stone" image (one source).</li>
+<li><strong>Imagery of sound:</strong> Mallet and chisel strokes fill the carving scenes (one source).</li>
+<li><strong>Contrast of speech and silence:</strong> The narrator works and speaks; the woman watches without speaking. This contrast carries the poem's emotional weight.</li>
+</ul>
+<h3>Structure, narration and flashbacks</h3>
+<ul>
+<li><strong>Structure:</strong> A narrative told in a sequence of nights. It moves forward from the request to the carving to the final night.</li>
+<li><strong>Length:</strong> Three sources give 97 lines.</li>
+<li><strong>Stanzas:</strong> Sources disagree. One says 11 stanzas; another says none.</li>
+<li><strong>Flashback:</strong> No full flashback scene. It refers back briefly to the accident and the death, then stays with the carving nights. The backward reference comes from one source.</li>
+</ul>
+<h3>Tone and style</h3>
+<ul>
+<li>Quiet, bleak and restrained. No open display of emotion.</li>
+<li>Plain language close to everyday speech. The characters are working people.</li>
+<li>The poem ends on an action, not a statement, which leaves the grief to the reader.</li>
+</ul>
+<h3>Exam points</h3>
+<ul>
+<li>Title, author and 1912 publication in <em>Fires – Book I</em>.</li>
+<li>A 97-line narrative about a quarry death and a silent grieving woman.</li>
+<li>The stone is both a headstone and a symbol of hardened grief.</li>
+<li>Key contrast: the woman's silence against the narrator's work.</li>
+<li>Ending: she leaves, and the narrator carves her name the next night.</li>
+<li>Main message: sudden death causes silent grief, and a lasting memorial is the only comfort the narrator can give.</li>
+</ul>
+<aside class="flags"><h3>Unverified or uncertain</h3><ul>
+<li><strong>Line count:</strong> 97 (three sources). A summary's figure of about 230 lines was rejected because its line numbers do not match the source.</li>
+<li><strong>Stanzas:</strong> 11 versus none. Unresolved.</li>
+<li><strong>Narrator's role and who visits whom:</strong> The study guide has the narrator visiting to break the news; other sources have the woman coming to him. Unresolved.</li>
+<li><strong>Single-source details:</strong> Candlelight, mallet and chisel, "turned to stone," "three days earlier," the woman following him home.</li>
+<li><strong>Ending:</strong> The carving of her name the next night is in one study guide and one full-text summary. Not confirmed as a direct quote.</li>
+<li><strong>Setting:</strong> Northumberland is not confirmed.</li>
+<li><strong>Birthplace:</strong> Not verified. The Poetry Foundation biography returned HTTP 403.</li>
+<li><strong>Publication date:</strong> 1912 from the title-page imprint. Not checked for earlier magazine printing.</li>
+<li><strong>Source quality:</strong> Most details come from a commercial study guide and short summaries. The Wikisource copy returned HTTP 401.</li>
+</ul></aside>
+
+</section><section class="text"><h2 id="sources-and-limits">Sources and limits</h2>
+<ul>
+<li><strong>Image check:</strong> All ten texts are on the WAEC list in the photo you sent. Three names differ from the correct spelling, as noted at the top.</li>
+<li><strong>Shortest notes:</strong> <em>Path of Lucas</em> is the thinnest, with most details from review sites. <em>The Nun's Priest's Tale</em> covers only the opening of the WAEC excerpt. <em>Digging</em> and <em>The Stone</em> rest on a few sources each.</li>
+<li><strong>Blocked sources:</strong> Several major study sites (SparkNotes, Poetry Foundation, Gradesaver, Britannica, PoemAnalysis, Books-A-Million and others) returned errors for some or all research workers. Where a point rests on one source, it is marked above.</li>
+<li><strong>Not done:</strong> No text was read in full beyond what the WAEC PDF printed. For exam use, check every quote and reference against your own copy.</li>
+</ul></section></main></div>
+</body>
+</html>
