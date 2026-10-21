@@ -3,7 +3,7 @@
 		{ href: '/festus-preachers/contradictions', label: 'festus / contradictions' },
 		{ href: '/festus-preachers/slides', label: 'festus / slides' },
 		{ href: '/paul-after-antioch.md', label: 'paul / after antioch' },
-		{ href: '/animators-hive-hub-report.md', label: 'animators hive hub / report' },
+		{ href: '/frame2-report.md', label: 'frame2 / report' },
 		{ href: '/private', label: 'private' }
 	];
 </script>
